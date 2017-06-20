@@ -14,9 +14,11 @@ class PostsIndex extends Component {
   }
   renderPosts(){
     // lodash map works over object keys and returns an array of the values
-    return _.map(this.props.posts, post => {
+    return _.map(this.props.posts, (post) => {
       return(
-        <li key={post.id} className="list-group-item">{post.title}</li>
+        <Link key={post.id} to={`/posts/${post.id}`}>
+          <li className="list-group-item">{post.title}</li>
+        </Link>
       )
     })
   }
